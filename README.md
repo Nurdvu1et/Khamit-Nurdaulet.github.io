@@ -27,7 +27,7 @@ yarn install  # or npm install
 3️⃣ Create a .env file
 plaintext
 PORT=5000
-MONGO_URI=your_mongodb_connection_string
+MONGO_URI=mongodb+srv://dbUser:dbUserPassword@cluster0.hp3oq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
 4️⃣ Start the server
 bash
 npm start  # or yarn start
