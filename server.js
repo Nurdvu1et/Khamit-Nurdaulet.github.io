@@ -15,12 +15,15 @@ app.get("/", (req, res) => {
 
 mongoose.connect(process.env.MONGO_URI)
     .then(() => console.log("MongoDB Connected"))
-    .catch(err => console.log(err));
-
-app.listen(process.env.PORT, () => console.log(`Server running on port ${process.env.PORT}`));
+    .catch(err => {
+      console.error("MongoDB Connection Error:", err);
+      process.exit(1);
+    });
 
 const productRoutes = require("./routes/productRoutes");
 app.use("/products", productRoutes);
 
 const authRoutes = require("./routes/authRoutes");
 app.use("/auth", authRoutes);
+
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
