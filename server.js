@@ -9,6 +9,10 @@ app.use(cors());
 
 const PORT = process.env.PORT || 10000;
 
+app.listen(PORT, "0.0.0.0", () => {
+    console.log(`Server running on port ${PORT}`);
+});
+
 app.get("/", (req, res) => {
   res.send("Backend is running!");
 });
@@ -25,5 +29,3 @@ app.use("/products", productRoutes);
 
 const authRoutes = require("./routes/authRoutes");
 app.use("/auth", authRoutes);
-
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
